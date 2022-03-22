@@ -13,4 +13,15 @@
           grid-template-columns: repeat(2,1fr);
      }
 }
+@media screen and (min-width:2000px) and (max-width:2700px) {
+     .shop-container{
+          grid-template-columns: 4fr 1fr;
+     }
+     .products-container{
+          grid-template-columns: repeat(4,1fr);
+     }
+}
+.card-container{
+     background-color:rgba(255, 153, 0, 0.3);
+}
 
