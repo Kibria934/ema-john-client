@@ -1,0 +1,37 @@
+.header{
+     height: 80px;
+     background-color:#1C2B35;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding-left: 146px;
+     padding-right: 140px;
+     font-family: sans-serif;
+}
+.header div a{
+     margin-left: 34px;
+     font-size: 17px;
+     line-height: 20px;
+     text-decoration: none;
+     color: #FFFFFF;
+     padding: 20px;
+     cursor: pointer;
+}
+.header a:hover {
+     color: #ff9900;
+}
+@media screen and (max-width:700px) and (min-width:350px) {
+     .header{
+          width: 150%;
+     }
+}
+@media screen and (max-width:1000px) and (min-width:701px) {
+     .header{
+          width: 130%;
+     }
+}
+/* @media screen and (max-width:2000px)and (min-width:1001px) { */
+     /* .header{
+          width: 100%;
+     }
+} */

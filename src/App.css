@@ -1,6 +1,6 @@
-.App {
+/*  .App {
   text-align: center;
-}
+} 
 
 .App-logo {
   height: 40vmin;
@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+ 
+
+ body{
+   margin: 0;
+   pad: 0;
+   box-sizing: border-box;
+ }
+ .main{
+   margin: 0;
+   pad: 0;
+   box-sizing: border-box;
+   /* text-align: center; */
+ } */
