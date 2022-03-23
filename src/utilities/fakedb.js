@@ -22,12 +22,12 @@ const addToDb = id =>{
 const getStoredCart = () => {
     let shoppingCart = {};
     const storedCart = localStorage.getItem('shopping-cart');
-       
     if (storedCart) {
         shoppingCart = JSON.parse(storedCart);
     } else {
         shoppingCart = {};
     }
+    return shoppingCart;
     }
 
 const removeFromDb = id =>{
