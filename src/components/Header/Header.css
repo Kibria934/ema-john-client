@@ -7,6 +7,9 @@
      padding-left: 146px;
      padding-right: 140px;
      font-family: sans-serif;
+     position: sticky;
+     z-index: 999;
+     top: 0;
 }
 .header div a{
      margin-left: 34px;
