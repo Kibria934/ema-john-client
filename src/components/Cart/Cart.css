@@ -1,33 +1,31 @@
-.cart{
-     position:sticky;
-     top: 10%;
-     padding: 20px 20px;
+.cart {
+  position: sticky;
+  top: 10%;
+  padding: 20px 20px;
 }
-.cart h2{
-     font-size: 25px;
-     line-height: 30px;
-     letter-spacing: 1.05px;
-     margin-bottom: 30px;
+.cart h2 {
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 1.05px;
+  margin-bottom: 30px;
+  font: 20px;
+  line-height: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
 }
-.cart h3{
-     font: 20px;
-     line-height: 30px;
-     letter-spacing: 1px;
-     margin-bottom: 30px;
+.cart button {
+  width: 232px;
+  height: 48px;
+  margin: 11px;
+  border: none;
+  border-radius: 5px;
+  color: #ffff;
+  font-size: 17px;
+  text-align: center;
 }
-.cart button{
-     width: 232px;
-     height: 48px;
-     margin: 11px;
-     border: none;
-     border-radius: 5px;
-     color: #ffff;
-     font-size: 17px;
-     text-align: center;
+.cart .clear-btn {
+  background-color: #ff3030;
 }
-.cart .clear-btn{
-     background-color:#FF3030;
-}
-.cart .review-btn{
-     background-color: #FF9900;
+.cart .review-btn {
+  background-color: #ff9900;
 }

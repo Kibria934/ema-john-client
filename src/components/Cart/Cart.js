@@ -2,14 +2,12 @@ import React, { Children } from "react";
 import { Link } from "react-router-dom";
 import "./Cart.css";
 const Cart = (props) => {
-  console.log(props.children);
   const { cart } = props;
   let total = 0;
   let totalShipping = 0;
   let quantity = 0;
   for (const product of cart) {
     quantity = quantity + product.quantity;
-    // console.log(quantity);
     total += product.price * product.quantity;
     totalShipping += product.shipping;
   }

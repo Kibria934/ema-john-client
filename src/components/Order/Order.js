@@ -1,7 +1,9 @@
 import { faArrowRight, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 import useCart from "../../Hook/useCart";
 import useProducts from "../../Hook/useProducts";
 import { removeFromDb } from "../../utilities/fakedb";
@@ -10,13 +12,15 @@ import ReviewCart from "../ReviewCart/ReviewCart";
 import "./Order.css";
 
 const Order = () => {
+  const [user, loading] = useAuthState(auth);
   const [products, setProducts] = useProducts();
   const [cart, setCart] = useCart(products);
 
+  loading && <p>loadin...</p>;
   const handleRmoveProduct = (product) => {
-    const rest = cart.filter((pd) => pd.id !== product.id);
+    const rest = cart.filter((pd) => pd._id !== product._id);
     setCart(rest);
-    removeFromDb(product.id);
+    removeFromDb(product._id);
   };
   const navigate = useNavigate();
   return (
@@ -24,7 +28,7 @@ const Order = () => {
       <div className="product-container">
         {cart.map((product) => (
           <ReviewCart
-            key={product.id}
+            key={product._id}
             product={product}
             handleRmoveProduct={handleRmoveProduct}
           ></ReviewCart>
@@ -43,15 +47,15 @@ const Order = () => {
           </Link>
           <button
             onClick={() => {
-              navigate("/inventor");
+              navigate("/inventory");
             }}
             className="review-btn"
           >
-            Proceed Checkout{" "}
+            Proceed Checkout
             <FontAwesomeIcon
               style={{ marginLeft: "10px" }}
               icon={faArrowRight}
-            ></FontAwesomeIcon>{" "}
+            ></FontAwesomeIcon>
           </button>
         </Cart>
       </div>
