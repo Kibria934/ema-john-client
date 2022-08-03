@@ -3,6 +3,7 @@
   top: 10%;
   padding: 20px 20px;
 }
+
 .cart h2 {
   font-size: 25px;
   line-height: 30px;
@@ -13,6 +14,7 @@
   letter-spacing: 1px;
   margin-bottom: 30px;
 }
+
 .cart button {
   width: 232px;
   height: 48px;
@@ -23,9 +25,11 @@
   font-size: 17px;
   text-align: center;
 }
+
 .cart .clear-btn {
-  background-color: #ff3030;
+  background-color: var(--secondaryClr);
 }
+
 .cart .review-btn {
   background-color: #ff9900;
 }

@@ -9,9 +9,15 @@ import About from "./components/About/About";
 import LogIn from "./components/LogIn/LogIn";
 import SignUp from "./components/SignUp/SignUp";
 import RequirAuth from "./components/RequirAuth/RequirAuth";
+import auth from "./firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Loading from "./components/loading/Loading";
 
 function App() {
-  return (
+  const [user, loading, error] = useAuthState(auth);
+  return loading ? (
+    <Loading />
+  ) : (
     <div>
       <Header></Header>
       <Routes>

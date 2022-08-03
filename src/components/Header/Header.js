@@ -5,9 +5,9 @@ import auth from "../../firebase.init";
 import logo from "../../images/Logo.svg";
 import "./Header.css";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
-
   return (
     <nav className="header">
       <img src={logo} alt="" />

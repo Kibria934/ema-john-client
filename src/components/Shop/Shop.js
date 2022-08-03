@@ -6,11 +6,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, UNSAFE_LocationContext } from "react-router-dom";
+import auth from "../../firebase.init";
 import useCart from "../../Hook/useCart";
 import useProducts from "../../Hook/useProducts";
 import { addToDb, getStoredCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
+import Loading from "../loading/Loading";
 import Product from "../Product/Product";
 import "./Shop.css";
 
@@ -20,6 +23,12 @@ const Shop = () => {
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
+
+  const [user, loading, error] = useAuthState(auth);
+
+  useEffect(() => {
+    loading && <Loading />;
+  }, [loading]);
 
   useEffect(() => {
     fetch(
@@ -56,6 +65,17 @@ const Shop = () => {
     setCart(newCart);
     addToDb(selectedProduct._id);
   };
+  const handleClear = () => {
+    const procced = window.confirm(
+      "Are you really want to delete the cart Data?"
+    );
+    if (procced) {
+      setCart([]);
+      const storedCartData = localStorage.removeItem("shopping-cart");
+      console.log(storedCartData);
+    }
+  };
+
   return (
     <div className="shop-container">
       {/* ----product container--------- */}
@@ -72,8 +92,8 @@ const Shop = () => {
       <div className="card-container">
         <Cart cart={cart}>
           <Link to={""}>
-            <button className="clear-btn">
-              Clear Cart{" "}
+            <button onClick={handleClear} className="clear-btn">
+              Clear Cart
               <FontAwesomeIcon
                 icon={faTrash}
                 style={{ marginLeft: "10px" }}
@@ -82,7 +102,7 @@ const Shop = () => {
           </Link>
           <Link to={"/order"}>
             <button className="review-btn">
-              Review Order{" "}
+              Review Order
               <FontAwesomeIcon
                 icon={faArrowRightFromBracket}
                 style={{ marginLeft: "10px" }}

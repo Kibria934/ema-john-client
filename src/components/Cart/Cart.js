@@ -1,7 +1,10 @@
 import React, { Children } from "react";
 import { Link } from "react-router-dom";
 import "./Cart.css";
+
 const Cart = (props) => {
+  console.log(props.children);
+
   const { cart } = props;
   let total = 0;
   let totalShipping = 0;
@@ -15,7 +18,15 @@ const Cart = (props) => {
   const grandTotal = total + totalShipping + tax;
   return (
     <div className="cart">
-      <h2>This is card container</h2>
+      <h2
+        style={{
+          color: "white",
+          textShadow: "2px 1px 3px black",
+          letterSpacing: "3px",
+        }}
+      >
+        Your Order Summery
+      </h2>
       <p>selected items: {quantity}</p>
       <p>Total Price:${total} </p>
       <p>Total Shipping Price:$ {totalShipping}</p>

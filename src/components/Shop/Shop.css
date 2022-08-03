@@ -2,27 +2,32 @@
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
+
 .products-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
   margin: 100px 50px;
 }
+
 @media screen and (max-width: 1100px) {
   .products-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media screen and (min-width: 2000px) and (max-width: 2700px) {
   .shop-container {
     grid-template-columns: 4fr 1fr;
   }
+
   .products-container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 .card-container {
-  background-color: rgba(255, 153, 0, 0.3);
+  background-color: var(--primaryClr);
 }
 
 .pagination {
@@ -31,10 +36,11 @@
   margin: 0 auto;
   margin-top: 0px;
   margin-bottom: 50px;
-  background: rgb(244, 221, 186);
+  background: var(--paginationClr);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
+
 .pagination button {
   margin: 10px;
   padding: 10px;
@@ -44,14 +50,20 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
+
 .pagination button:hover {
-  background: rgb(79, 194, 228);
+  background: var(--secondaryClr);
+  color: white;
+  text-shadow: 1px 3px 20px rgb(255, 255, 255);
   outline: 0;
   border: 0;
 }
+
 .pagination .selected {
-  background: rgb(79, 194, 228);
+  background: var(--secondaryClr);
+  color: white;
 }
+
 .pagination-option {
   padding: 10px;
   font-size: 17px;
