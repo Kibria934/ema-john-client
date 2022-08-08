@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = (props) => {
-  console.log(props.children);
-
   const { cart } = props;
   let total = 0;
   let totalShipping = 0;

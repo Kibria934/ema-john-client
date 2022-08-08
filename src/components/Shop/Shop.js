@@ -7,15 +7,15 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, UNSAFE_LocationContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import useCart from "../../Hook/useCart";
-import useProducts from "../../Hook/useProducts";
-import { addToDb, getStoredCart } from "../../utilities/fakedb";
-import Cart from "../Cart/Cart";
 import Loading from "../loading/Loading";
-import Product from "../Product/Product";
+import { addToDb, getStoredCart } from "../../utilities/fakedb";
 import "./Shop.css";
+
+const Product = React.lazy(() => import("../Product/Product"));
+const Cart = React.lazy(() => import("../Cart/Cart"));
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -72,7 +72,6 @@ const Shop = () => {
     if (procced) {
       setCart([]);
       const storedCartData = localStorage.removeItem("shopping-cart");
-      console.log(storedCartData);
     }
   };
 

@@ -6,7 +6,6 @@ const useCart = () => {
 
   useEffect(() => {
     const storedCart = getStoredCart();
-    // console.log(storedCart);
     const keys = Object.keys(storedCart);
     let savedCart = [];
 

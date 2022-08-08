@@ -2,12 +2,13 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
-import logo from "../../images/Logo.svg";
 import "./Header.css";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import logo from "../../images/Logo.svg";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
+
   return (
     <nav className="header">
       <img src={logo} alt="" />

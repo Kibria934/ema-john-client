@@ -23,7 +23,6 @@ const LogIn = () => {
   };
 
   if (user) {
-    console.log(user);
     navigate(from, { replace: true });
   }
   const handlePasswordBlur = (event) => {
@@ -35,11 +34,15 @@ const LogIn = () => {
   }
   const handleUserSignIn = (event) => {
     event.preventDefault();
-    console.log(email, password);
-
     if ((email, password)) {
       signInWithEmailAndPassword(email, password);
+      fetch(`http://localhost:5000/user/${email}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      }).then((res) => res.json());
     }
+
     return console.log("create account first");
   };
 
